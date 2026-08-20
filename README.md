@@ -43,7 +43,7 @@ The default rate by loan grade shows a clean, monotonic relationship — exactly
 you'd expect from a well-behaved credit risk dataset, and a good sanity check that the
 data (and the cleaning) is trustworthy before modeling on it.
 
-![Default rate by loan grade](images/default_rate_by_grade.png)
+<img width="590" height="390" alt="default_rate_by_grade" src="https://github.com/user-attachments/assets/a806e967-8791-4ede-ab2c-b5e0ffd9214f" />
 
 | Grade | A | B | C | D | E | F | G |
 |---|---|---|---|---|---|---|---|
@@ -53,8 +53,10 @@ Default rate also varies meaningfully by loan intent, and loans that eat up a la
 share of the applicant's income default more often — both consistent with real-world
 credit risk behavior.
 
-![Default rate by loan intent](images/default_rate_by_intent.png)
-![Correlation matrix](images/correlation_matrix.png)
+<img width="690" height="390" alt="default_rate_by_intent" src="https://github.com/user-attachments/assets/a5741cca-ff50-49a7-98c5-9f5a3b4292c2" />
+
+<img width="692" height="578" alt="correlation_matrix" src="https://github.com/user-attachments/assets/dc5b6b58-a121-4aeb-8418-3b2940b41d18" />
+
 
 ## 3. Feature Engineering
 
@@ -77,14 +79,17 @@ Four classifiers were trained and compared:
 | Random Forest | 0.922 | 0.954 | 0.676 | 0.791 | 0.913 |
 | **XGBoost** | **0.934** | **0.967** | **0.721** | **0.826** | **0.947** |
 
-![Model comparison](images/model_comparison.png)
-![ROC curves](images/roc_curves.png)
+<img width="777" height="390" alt="model_comparison" src="https://github.com/user-attachments/assets/88903a11-5da8-4b17-b466-753a13e27fe5" />
+
+<img width="590" height="490" alt="roc_curves" src="https://github.com/user-attachments/assets/0d50b489-8da7-43f4-90e5-527a603d4360" />
+
 
 **XGBoost** was the strongest model on every metric, including ROC-AUC. Its top
 predictors were renting vs. owning a home, loan-percent-of-income, loan grade, and
 interest rate — all financially sensible drivers of default risk.
 
-![Feature importance](images/feature_importance.png)
+<img width="690" height="490" alt="feature_importance" src="https://github.com/user-attachments/assets/572a1d21-09cd-4e43-b843-04a64ee9e7ec" />
+
 
 ### Honest limitation
 
@@ -92,7 +97,7 @@ XGBoost's confusion matrix shows it catches defaults with 97% precision — when
 a loan as high-risk, it's almost always right — but recall is only 72%. Of 1,421 loans
 that actually defaulted in the test set, it missed 397 of them.
 
-![Confusion matrix](images/confusion_matrix.png)
+<img width="391" height="376" alt="confusion_matrix" src="https://github.com/user-attachments/assets/174c1b89-e97d-459d-92c7-5dba7954d592" />
 
 For a real lending use case, this trade-off matters: the model is conservative about
 flagging risk, which limits false alarms but also means a meaningful share of true
